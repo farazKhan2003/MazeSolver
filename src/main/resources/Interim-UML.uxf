@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>790</x>
+      <y>90</y>
+      <w>360</w>
+      <h>790</h>
+    </coordinates>
+    <panel_attributes>uk.ac.rhul.cs3821:MazeGenerator
+Generate the maze randomly
+--
+*Attributes:*
+-gui: GuiView
+-start: Cells
+-end: Cells
+-grid: Cells[][]
+-brCorner: int[]
+-tlCorner: int[]
+-visited: Boolean[][]
+-frame: JFrame
+-panel: JPanel
+-dimension: int
+-gridSize: int
+-rows: int
+-cols: int
+-colBeginning: int
+-rowBeginning: int
+-rand: double
+-colour: Colour
+--
+*Operations*
+&lt;&lt;constructor&gt;&gt; +MazeGenerator(gridSize: int)
+&lt;&lt;constructor&gt;&gt; +MazeGenerator()
+	
++mazeGen() {Exception=InvalidColour}
++constructWalls() {Exception=InvalidColour}
+-getIndex(cur: Cells)
++constructBorders() {Exception=InvalidColour}
++findBrCorner(): int[]
++findTlCorner(): int[]
++getFrame(): JFrame
++getgridSize(): int
++setgridSize(gridSize: int): int
++getRows(): int
++setRows(rows: int)
++getCols(): int
++setCols(cols: int)
++getStart(): Cells
++getGrid(): Cells[][]
++getRand(): double
++setRand(rand: double)
++getColBeginning(): int
++setColBeginning(colBeginning: int)
++getRowBeginning(): int
++setRowBeginning(rowBeginning: int)
++getColorOfStart(): String
++getColorOfEnd(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>20</y>
+      <w>390</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;view&gt;&gt;
+uk.ac.rhul.cs3821::GuiView
+Graphical Interface 
+for the main menu with:
+1) a text field for the grid size
+2) a 'generate' button
+3) two drop down menus for the algorithm types
+--
+*Attributes:*
+-mg: MazeGenerator
+-gridSize: int
+-gridSizeInp: String
+-mazeAlgs: ObservableList&lt;String&gt;
+_-instance: GuiView_
+--
+*Operations*
++gridSizeInp(event: KeyEvent)
++getGridSize(): int
++setGridSize(gridSize: int)
++setGridSizeInp(gridSizeInp: String)
++getGridSizeInp(): String
++close()
++getInstance(): GuiView
++initialize()
++generate(event: ActionEvent): 
+                 {Exception=InvalidColor}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>310</y>
+      <w>390</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>uk.ac.rhul.cs3821:Cells
+Determines the walls of the maze
+--
+*Attributes:*
+-sides: ArrayList&lt;String&gt;
+-isWall: boolean
+-visited: boolean
+-end: Cells
+-start: Cells
+-colour: Colour
+--
+*Operations*
+
++getEnd(): Cells
++setEnd(Cells end)
++getStart(): Cells
++setStart(Cells start): int
++convertStringToColor(String col): Color
+                                                       {Exception=InvalidColor} 
++convertColorToString(Color col): String 
+                                                       {Exception=InvalidColor}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>630</y>
+      <w>260</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+uk.ac.rhul.cs3821::Direction
+A list of the types of 
+directions of borders the cell can be on
+--
+_NORTH_
+_SOUTH_
+_EAST_
+_WEST_
+--
+*Operations*
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>650</x>
+      <y>570</y>
+      <w>100</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>1..4
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>540</y>
+      <w>160</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>360</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>170</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>710</y>
+      <w>380</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;adapter&gt;&gt;
+uk.ac.rhul.cs3821: Colour
+Adapter class for the 
+java.awt.Color library
+--
+*Operations:*
++convertStringToColor(String col): Color
+                                                       {Exception=InvalidColor} 
++convertColorToString(Color col): String 
+                                                       {Exception=InvalidColor}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1410</x>
+      <y>640</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+</diagram>
